@@ -1,11 +1,6 @@
-Electron DevTools Installer
+Electron DevTools Installer2
 ---------------------------
-
-![CircleCI](https://img.shields.io/circleci/build/github/MarshallOfSound/electron-devtools-installer?style=for-the-badge)
-[![npm](https://img.shields.io/npm/v/electron-devtools-installer?style=for-the-badge)](https://www.npmjs.com/package/electron-devtools-installer)
-![npm](https://img.shields.io/npm/dt/electron-devtools-installer?style=for-the-badge)
-[![license](https://img.shields.io/github/license/GPMDP/electron-devtools-installer.svg?maxAge=2592000&style=for-the-badge)](https://github.com/GPMDP/electron-devtools-installer/blob/master/LICENSE)
-[![CFA Enabled](https://img.shields.io/badge/CFA-Enabled-success?style=for-the-badge)](https://github.com/continuousauth)
+> forked from (Electron DevTools Installer)[https://github.com/MarshallOfSound/electron-devtools-installer/pull/192/files], add custom session support.
 
 This is an easy way to install DevTool extensions into Electron.  You shouldn't
 have to mess around with downloading the extension, finding the right folder and
@@ -14,21 +9,21 @@ then configuring the path for everyone's machines.
 ## Install
 
 ```
-npm install electron-devtools-installer --save-dev
+npm install electron-devtools-installer2 --save-dev
 ```
 or
 ```
-yarn add electron-devtools-installer -D
+yarn add electron-devtools-installer2 -D
 ```
 
 ## Usage
 All you have to do now is this in the **main** process of your application.
 
 ```js
-import installExtension, { REDUX_DEVTOOLS } from 'electron-devtools-installer';
+import installExtension, { REDUX_DEVTOOLS } from 'electron-devtools-installer2';
 // Or if you can not use ES6 imports
 /**
-const { default: installExtension, REACT_DEVELOPER_TOOLS } = require('electron-devtools-installer');
+const { default: installExtension, REACT_DEVELOPER_TOOLS } = require('electron-devtools-installer2');
 */
 const { app } = require('electron');
 
@@ -55,7 +50,7 @@ import installExtension, {
   VUEJS3_DEVTOOLS, REDUX_DEVTOOLS,
   CYCLEJS_DEVTOOL, MOBX_DEVTOOLS,
   APOLLO_DEVELOPER_TOOLS,
-} from 'electron-devtools-installer';
+} from 'electron-devtools-installer2';
 ```
 
 ## How does it work?

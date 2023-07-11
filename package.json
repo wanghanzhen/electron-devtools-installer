@@ -1,6 +1,6 @@
 {
-  "name": "electron-devtools-installer",
-  "version": "0.0.0-development",
+  "name": "electron-devtools-installer2",
+  "version": "1.0.0",
   "description": "An easy way to install Dev Tools extensions into Electron applications",
   "main": "dist/index.js",
   "scripts": {
@@ -22,13 +22,10 @@
     "email": "samuel.r.attard@gmail.com",
     "url": "https://www.samuelattard.com"
   },
-  "bugs": {
-    "url": "https://github.com/MarshallOfSound/electron-devtools-installer/issues"
-  },
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/MarshallOfSound/electron-devtools-installer.git"
+    "url": "https://github.com/wanghanzhen/electron-devtools-installer.git"
   },
   "devDependencies": {
     "@continuous-auth/semantic-release-npm": "^2.0.0",

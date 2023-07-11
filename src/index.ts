@@ -1,4 +1,4 @@
-import { BrowserWindow, session } from 'electron';
+import { BrowserWindow, session as _session, Session } from 'electron';
 import * as fs from 'fs';
 import * as path from 'path';
 import * as semver from 'semver';
@@ -36,6 +36,11 @@ interface ExtensionOptions {
    * Options passed to session.loadExtension
    */
   loadExtensionOptions?: Record<any, any>;
+  /**
+   * custom session
+   * default value is electron.session.defaultSession
+   */
+  session?: Session;
 }
 
 /**
@@ -51,7 +56,7 @@ const install = (
   if (typeof options === 'boolean') {
     options = { forceDownload: options };
   }
-  const { forceDownload, loadExtensionOptions } = options;
+  const { forceDownload, loadExtensionOptions, session = _session.defaultSession } = options;
 
   if (process.type !== 'browser') {
     return Promise.reject(
@@ -87,10 +92,10 @@ const install = (
   let extensionInstalled: boolean;
 
   // For Electron >=9.
-  if ((session.defaultSession as any).getExtension) {
+  if ((session as any).getExtension) {
     extensionInstalled =
       !!extensionName &&
-      (session.defaultSession as any)
+      (session as any)
         .getAllExtensions()
         .find((e: { name: string }) => e.name === extensionName);
   } else {
@@ -107,19 +112,19 @@ const install = (
     // Use forceDownload, but already installed
     if (extensionInstalled) {
       // For Electron >=9.
-      if ((session.defaultSession as any).removeExtension) {
-        const extensionId = (session.defaultSession as any)
+      if ((session as any).removeExtension) {
+        const extensionId = (session as any)
           .getAllExtensions()
           .find((e: { name: string }) => e.name).id;
-        (session.defaultSession as any).removeExtension(extensionId);
+        (session as any).removeExtension(extensionId);
       } else {
         BrowserWindow.removeDevToolsExtension(extensionName);
       }
     }
 
     // For Electron >=9.
-    if ((session.defaultSession as any).loadExtension) {
-      return (session.defaultSession as any)
+    if ((session as any).loadExtension) {
+      return (session as any)
         .loadExtension(extensionFolder, loadExtensionOptions)
         .then((ext: { name: string }) => {
           return Promise.resolve(ext.name);
