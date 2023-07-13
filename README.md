@@ -1,6 +1,6 @@
 Electron DevTools Installer2
 ---------------------------
-> forked from (Electron DevTools Installer)[https://github.com/MarshallOfSound/electron-devtools-installer/pull/192/files], add custom session support.
+> forked from [Electron DevTools Installer](https://github.com/MarshallOfSound/electron-devtools-installer/pull/192/files), add custom session support.
 
 This is an easy way to install DevTool extensions into Electron.  You shouldn't
 have to mess around with downloading the extension, finding the right folder and
